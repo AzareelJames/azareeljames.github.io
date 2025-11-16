@@ -363,7 +363,7 @@ input.addEventListener("keydown", e => {
         write("microsoft support@[Search] - Opens ms support with search");
         write("battery - Shows the battery percentage");
         write("browser - Shows the browser details");
-        write("Spotify@[ID] - Opens Spotify with ID Song");
+        write("spotify@[ID] - Opens Spotify with ID Song");
         write("fullscreen - sets window on fullscreen");
         write("calc@[Expression] - Calculates the Expression");
         write("img@[Source] - Logs the image");
@@ -399,3 +399,4 @@ input.addEventListener("keydown", e => {
 window.addEventListener("online", () => console.info("WI-FI is on."));
 
 window.addEventListener("offline", () => console.info("WI-FI is off."));
+
