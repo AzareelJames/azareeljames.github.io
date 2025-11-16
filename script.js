@@ -279,12 +279,14 @@ input.addEventListener("keydown", e => {
     } else if(cmdVar === "calc"){
         if(!cmdVal){
             try{
-                window.open("calculator:");
+                if(navigator.userAgent.includes("windows")){
+                    window.open("calculator:");
+                }
             } catch{
                 console.error("Expression required.");
             }
         } else{
-            if(/^[0-9+\-*/()]*$/.test(cmdVal)){
+            if(/^[0-9+\-*/().]*$/.test(cmdVal)){
                 try{
                     write(eval(cmdVal), "lime");
                 } catch{
@@ -399,4 +401,5 @@ input.addEventListener("keydown", e => {
 window.addEventListener("online", () => console.info("WI-FI is on."));
 
 window.addEventListener("offline", () => console.info("WI-FI is off."));
+
 
