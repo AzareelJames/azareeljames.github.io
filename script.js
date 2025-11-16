@@ -279,7 +279,7 @@ input.addEventListener("keydown", e => {
     } else if(cmdVar === "calc"){
         if(!cmdVal){
             try{
-                if(navigator.userAgent.includes("windows")){
+                if(navigator.userAgent.includes("Windows")){
                     window.open("calculator:");
                 }
             } catch{
@@ -401,5 +401,6 @@ input.addEventListener("keydown", e => {
 window.addEventListener("online", () => console.info("WI-FI is on."));
 
 window.addEventListener("offline", () => console.info("WI-FI is off."));
+
 
 
