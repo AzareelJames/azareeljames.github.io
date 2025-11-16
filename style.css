@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+}
+
+#path{
+    font-size: 1.3em;
+}
+
+#script{
+    font-size: 1.35em;
+
+    color: white;
+}
+
+#input{
+    font-size: 1em;
+
+    width: 880px;
+    background-color: black;
+    color: white;
+}

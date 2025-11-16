@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>404 Error</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="ErrorIcon.png">
+
+    <style>
+        body{
+            animation: blackout 2.3s forwards;
+        }
+
+        .e{
+            position: absolute;
+            transform: translate(-50%, -50%);
+        }
+
+        h1{
+            font-size: 3em;
+            color: white;
+
+            left: 50%;
+            top: 15%;
+        }
+
+        p{
+            font-size: 1.3em;
+            text-align: center;
+            color: white;
+
+            left: 50%;
+            top: 30%;
+        }
+
+        button{
+            cursor: pointer;
+            color: white;
+            background-color: rgb(50, 50, 50);
+        }
+
+
+        @keyframes blackout{
+            0%{background-color: white;}
+            100%{background-color: black;}
+        }
+    </style>
+</head>
+<body>
+    <h1 class="e" id="Err"></h1>
+    <p class="e">Uh oh!<br>Looks like this page you're looking for doesn't exist...</p>
+
+<script>
+const HTTPError = '404';
+
+const err = document.getElementById('Err');
+err.innerText = `${HTTPError} Error!`;
+</script>
+</body>
+</html>
