@@ -247,7 +247,7 @@ input.addEventListener("keydown", e => {
         setTimeout(() => {write("SIX SEVEN!!!!!!!!", "lime")}, 1870);
     } else if(i === "battery"){
         if(batterySupported){
-            write(`Battery Percentage: ${globalThis.battery.getLevel() * 100}${globalThis.battery.isCharging()? "⚡︎": ""}`);
+            write(`Battery Percentage: ${globalThis.battery.level * 100}${globalThis.battery.charging? "⚡︎": ""}`);
         } else{
             console.error("Battery not supported");
         }
@@ -397,4 +397,5 @@ input.addEventListener("keydown", e => {
 });
 
 window.addEventListener("online", () => console.info("WI-FI is on."));
+
 window.addEventListener("offline", () => console.info("WI-FI is off."));
