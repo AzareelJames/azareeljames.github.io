@@ -41,9 +41,21 @@ async function getBattery(){
 
 getBattery();
 
-input.addEventListener("keydown", e => {
+let done = false;
+const URLParam = new URLSearchParams(window.location.search).get("cmd");
+
+const exec = e => {
     if(e.key !== "Enter") return;
-    const cmd = String(input.value).trim();
+
+    let cmd;
+
+    if((!done) && URLParam){
+        cmd = URLParam;
+
+        done = true;
+    }else{
+        cmd = String(input.value).trim();
+    }
 
     write(`${path.innerText} ${cmd}`, "orange");
 
@@ -396,11 +408,15 @@ input.addEventListener("keydown", e => {
     window.scrollTo(0, document.body.scrollHeight);
     input.focus();
 }
-});
+}
+
+
+input.addEventListener("keydown", exec);
 
 window.addEventListener("online", () => console.info("WI-FI is on."));
 
 window.addEventListener("offline", () => console.info("WI-FI is off."));
 
-
-
+if(URLParam){
+    exec({"key": "Enter"});
+}
