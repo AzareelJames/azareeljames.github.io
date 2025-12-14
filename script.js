@@ -385,6 +385,10 @@ const exec = e => {
         write("voyager 2 - Current Distance between Voyager 2 to Earth");
         write("windows open@[Windows app] - Opens the app (Only for Windows os)");
         write("help - Shows all the commands");
+        write("favicon@[Source] - Changes favicon of this site");
+    } else if(cmdVar === "favicon"){
+        const fav = document.getElementById("fav");
+        fav.href = cmdVal;
     }
 
 
@@ -420,3 +424,4 @@ window.addEventListener("offline", () => console.info("WI-FI is off."));
 if(URLParam){
     exec({"key": "Enter"});
 }
+
