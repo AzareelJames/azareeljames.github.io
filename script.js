@@ -43,8 +43,10 @@ getBattery();
 
 let done = false;
 const URLParam = new URLSearchParams(window.location.search).get("cmd");
+let fileCMD;
 
 const exec = e => {
+
     if(e.key !== "Enter") return;
 
     let cmd;
@@ -57,6 +59,12 @@ const exec = e => {
         cmd = String(input.value).trim();
     }
 
+    if(fileCMD){
+        fileCMD = fileCMD.replaceAll("\n", "||");
+        cmd = fileCMD.trim();
+        fileCMD = null;
+    }
+    
     write(`${path.innerText} ${cmd}`, "orange");
 
     for(let i of cmd.split("||")){
@@ -386,9 +394,32 @@ const exec = e => {
         write("windows open@[Windows app] - Opens the app (Only for Windows os)");
         write("help - Shows all the commands");
         write("favicon@[Source] - Changes favicon of this site");
+        write("exec file - Choose the file to execute");
     } else if(cmdVar === "favicon"){
         const fav = document.getElementById("fav");
         fav.href = cmdVal;
+    } else if(i === "exec file"){
+        const fileInput = document.getElementById("fileInput");
+        fileInput.click();
+
+        fileInput.addEventListener("change", () => {
+            const file = fileInput.files[0];
+
+            if(file){
+                const reader = new FileReader();
+
+                reader.onload = e => {
+                    fileCMD = e.target.result;
+                    exec({"key": "Enter"});
+                }
+
+                reader.onerror = () => {
+                    console.error("Something went Wrong...");
+                }
+
+                reader.readAsText(file);
+            }
+        } );
     }
 
 
