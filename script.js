@@ -68,6 +68,8 @@ const exec = e => {
     write(`${path.innerText} ${cmd}`, "orange");
 
     for(let i of cmd.split("||")){
+    i = i.trim();
+        
     const cmdVar = i.split("@")[0];
     let cmdVal = i.split("@")[1];
 
@@ -455,4 +457,5 @@ window.addEventListener("offline", () => console.info("WI-FI is off."));
 if(URLParam){
     exec({"key": "Enter"});
 }
+
 
